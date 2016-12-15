@@ -213,7 +213,7 @@ Mühe, den Stoff interessant rüberzubringen.<br>Wenn du gerne Probleme in der P
       </div>
             <div class="col-md-5 col-md-offset-2 separator-x">
         <p class="wp wp-8">
-          </p><div>Was du hier lernen wirst:<ul class="nice-list"><li>Grundlagen der Programmierung</li><li>Programmieren mit Javascript</li><li>Apps für iOS und Android entwickeln</li><li>Der Prozess der Software-Entwicklung</li></ul>Was du hier nicht lernen wirst:<ul class="nice-list"><li>Wie man Java programmiert. Dafür gibt es <a href="#">meinen Java-Kurs</a></li><li>Wie man Spiele programmiert</li><li>Wie man ohne Anstrengung Programmieren lernt</li></ul></div>
+          </p><div>Was du hier lernen wirst:<ul class="nice-list"><li>Grundlagen der Programmierung</li><li>Programmieren mit Javascript</li><li>Apps für iOS und Android entwickeln</li><li>Der Prozess der Software-Entwicklung</li></ul>Was du hier nicht lernen wirst:<ul class="nice-list"><li>Wie man Java programmiert.<!-- Dafür gibt es <a href="#">meinen Java-Kurs</a>--></li><li>Wie man Spiele programmiert</li><li>Wie man ohne Anstrengung Programmieren lernt</li></ul></div>
         <p></p>
       </div>
           </div>
@@ -301,7 +301,7 @@ Mühe, den Stoff interessant rüberzubringen.<br>Wenn du gerne Probleme in der P
             
 
 
-<form name="my-nice-form" action="/home" method="POST" id="my-nice-form">
+<form action="#" method="POST" id="form">
 
   
               
@@ -323,13 +323,13 @@ Mühe, den Stoff interessant rüberzubringen.<br>Wenn du gerne Probleme in der P
     <div class="form-field  vertical">
                     <div class="form-label">
                 <label class="sr-only">
-                                                        Email
+                                                        E-Mail
                                         <span class="required">*</span>
                                 </label>
             </div>
             <div class="form-data" data-grav-field="text" data-grav-disabled="true" data-grav-default="null">
                                                             <div class="form-group has-icon-left form-control-data[email] ">
-                            <input name="data[email]" class="form-control form-control-lg" id="email" placeholder="Deine E-Mail-Adresse" required="required" type="text">
+                            <input name="data[email]" class="form-control form-control-lg" id="email" placeholder="Deine E-Mail-Adresse" required="required" type="email">
                         </div>
                     
                             </div>
@@ -338,13 +338,13 @@ Mühe, den Stoff interessant rüberzubringen.<br>Wenn du gerne Probleme in der P
     <div class="form-field  vertical">
                     <div class="form-label">
                 <label class="sr-only">
-                                                        Message
+                                                        Nachricht
                                         
                                 </label>
             </div>
             <div class="form-data" data-grav-field="textarea" data-grav-disabled="true" data-grav-default="null">
                                         <div class="form-group long">
-        <textarea class="form-control form-control-lg" name="data[message]" placeholder="Deine Nachricht (optional)" style="height: 200px;"></textarea>
+        <textarea class="form-control form-control-lg" name="data[message]" placeholder="Deine Nachricht (optional)" style="height: 200px;" id="msg"></textarea>
     </div>
                             </div>
             </div>
@@ -407,6 +407,49 @@ Mühe, den Stoff interessant rüberzubringen.<br>Wenn du gerne Probleme in der P
 </footer>
         
         <script src="assets/landio.js" type="text/javascript"></script>
-    
 
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="z-index: 10000">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Vielen Dank!</h4>
+      </div>
+      <div class="modal-body">
+        <p>Danke für deine Nachricht, ich melde mich bei dir.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="reset()">Schließen</button>
+        <!--button type="button" class="btn btn-primary">Save changes</button-->
+      </div>
+    </div><!-- /.modal-content -->
+  </div>
+</div>
+
+<script type="text/javascript">
+function reset() {
+  $('#name').val('')
+  $('#email').val('')
+  $('#msg').val('')
+}
+function modal() {
+  $('#myModal').modal('show');
+}
+
+document.getElementById('form').onsubmit = function(e) {
+  e.preventDefault();
+  var a = $('#name').val(), b = $('#email').val(), c = $('#msg').val();
+  $.ajax({
+    url: "https://formspree.io/prolernen981237rzfheq9@t-online.de", 
+    method: "POST",
+    data: {message: [a,b,'',c].join('\n')},
+    dataType: "json",
+    success: modal,
+    error: modal
+  });
+  return false;
+}
+
+</script>
 </body></html>

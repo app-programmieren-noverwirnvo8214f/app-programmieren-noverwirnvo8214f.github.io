@@ -452,7 +452,8 @@ $(function() {
     var session = {key: null};
   }
 
-  if (should_log && !Cookies.get('visited')) {
+  var visited = Cookies.get('visited');
+  if (should_log && !visited) {
       views.once('value').then(function(snapshot) {
           var v = snapshot.val();
           if (!isNaN(v)) { v++ } else { v=1 }
@@ -483,7 +484,7 @@ $(function() {
   window.reset=reset;
   window.log=log;
 
-  log('visited', Cookies.get('visited'));
+  log('visited', visited);
 
   var time_a = new Date();
   $(window).unload(function(){

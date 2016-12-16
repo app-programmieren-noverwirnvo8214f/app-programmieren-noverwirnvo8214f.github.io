@@ -63,13 +63,13 @@
                                                                         
                                                                         
                                                         <li class="nav-item nav-item-toggable ">
-                    <a class="nav-link" href="#inhalte">Inhalte</a>
+                    <a class="nav-link" href="#inhalte" onclick="log('menu', 'inhalte')">Inhalte</a>
                 </li>
                                                                                 <li class="nav-item nav-item-toggable ">
-                    <a class="nav-link" href="#projekte">Projekte</a>
+                    <a class="nav-link" href="#projekte" onclick="log('menu', 'projekte')">Projekte</a>
                 </li>
                                                                                                                 <li class="nav-item nav-item-toggable ">
-                    <a class="nav-link" href="#pakete">Pakete</a>
+                    <a class="nav-link" href="#pakete" onclick="log('menu', 'pakete')">Pakete</a>
                 </li>
                                                                 
                                                                 
@@ -82,7 +82,7 @@
   <div class="container">
     <h1 class="display-3">Lerne zu programmieren!</h1>
     <h2 class="m-b-lg">Programmiere jetzt <b>deine eigene App</b>.</h2>
-        <a class="btn btn-secondary-outline m-b-md" href="#intro" role="button"><span class="icon-"></span>Los geht's!</a>
+        <a class="btn btn-secondary-outline m-b-md" href="#intro" role="button" onclick="log('jumbotron', 'start')"><span class="icon-"></span>Los geht's!</a>
     
     <script type="text/javascript">
                     </script>
@@ -165,10 +165,10 @@ wie eine Superkraft.</p>
           <article class="center-block">
                         <span class="label label-info">Lektion</span>
             <br>
-                                    <h5><a href="#pakete">Was Bedingungen und Schleifen mit Computern zu tun haben <span class="icon-arrow-right"></span></a></h5>
+                                    <h5><a href="#pakete" onclick="log('lektion', '1')">Was Bedingungen und Schleifen mit Computern zu tun haben <span class="icon-arrow-right"></span></a></h5>
                         <p class="m-b-0">
-                            <a href="#"><span class="label label-default text-uppercase"><span class="icon-tag"></span>Grundlagen der Programmierung </span></a>
-                                          <a href="#"><span class="label label-default text-uppercase"><span class="icon-time"></span> 1 Stunde</span></a>
+                            <a href="#" onclick="log('lektion', '1')"><span class="label label-default text-uppercase"><span class="icon-tag"></span>Grundlagen der Programmierung </span></a>
+                                          <a href="#" onclick="log('lektion', '1')"><span class="label label-default text-uppercase"><span class="icon-time"></span> 1 Stunde</span></a>
                           </p>
           </article>
         </div>
@@ -183,10 +183,10 @@ wie eine Superkraft.</p>
           <article class="center-block">
                         <span class="label label-info">Lektion</span>
             <br>
-                                    <h5><a href="#pakete">Wie man ein App-Projekt beginnt <span class="icon-arrow-right"></span></a></h5>
+                                    <h5><a href="#pakete" onclick="log('lektion', '2')">Wie man ein App-Projekt beginnt <span class="icon-arrow-right"></span></a></h5>
                         <p class="m-b-0">
-                            <a href="#"><span class="label label-default text-uppercase"><span class="icon-tag"></span>App-Entwicklung </span></a>
-                                          <a href="#"><span class="label label-default text-uppercase"><span class="icon-time"></span> 30 Minuten</span></a>
+                            <a href="#" onclick="log('lektion', '2')"><span class="label label-default text-uppercase"><span class="icon-tag"></span>App-Entwicklung </span></a>
+                                          <a href="#" onclick="log('lektion', '2')"><span class="label label-default text-uppercase"><span class="icon-time"></span> 30 Minuten</span></a>
                           </p>
           </article>
         </div>
@@ -242,7 +242,7 @@ Mühe, den Stoff interessant rüberzubringen.<br>Wenn du gerne Probleme in der P
                         <li class="list-group-item">Kurs: App-Entwicklung</li>
                         <li class="list-group-item">2 Beispiel-Projekte</li>
                       </ul>
-                              <a href="#contact" class="btn btn-primary-outline">Jetzt bestellen</a>
+                              <a href="#contact" class="btn btn-primary-outline" onclick="log('buy', '1')">Jetzt bestellen</a>
                   </div>
       </div>
             <div class="col-md-4 stacking-top ">
@@ -264,7 +264,7 @@ Mühe, den Stoff interessant rüberzubringen.<br>Wenn du gerne Probleme in der P
                         <li class="list-group-item">Teilnahme an einem Gewinnspiel für einen Raspberry Pi</li>
                         <li class="list-group-item"><b>10</b> Beispiel-Projekte mit Dokumentation</li>
                       </ul>
-                              <a href="#contact" class="btn btn-primary">Jetzt bestellen</a>
+                              <a href="#contact" class="btn btn-primary" onclick="log('buy', '2')">Jetzt bestellen</a>
                   </div>
       </div>
             <div class="col-md-4 p-t-md wp wp-6 ">
@@ -284,7 +284,7 @@ Mühe, den Stoff interessant rüberzubringen.<br>Wenn du gerne Probleme in der P
                         <li class="list-group-item"><b>+2</b> größere Beispiel-Projekte</li>
                         <li class="list-group-item"><b>Beratungsgespräch mit Tipps für die Umsetzung der App</b></li>
                       </ul>
-                              <a href="#contact" class="btn btn-primary-outline">Jetzt bestellen</a>
+                              <a href="#contact" class="btn btn-primary-outline" onclick="log('buy', '3')">Jetzt bestellen</a>
                   </div>
       </div>
           </div>
@@ -427,30 +427,90 @@ Mühe, den Stoff interessant rüberzubringen.<br>Wenn du gerne Probleme in der P
     </div><!-- /.modal-content -->
   </div>
 </div>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.1.3/js.cookie.min.js"></script>
+<script src="https://www.gstatic.com/firebasejs/3.6.4/firebase.js"></script>
 <script type="text/javascript">
-function reset() {
-  $('#name').val('')
-  $('#email').val('')
-  $('#msg').val('')
-}
-function modal() {
-  $('#myModal').modal('show');
-}
+$(function() {
+  var should_log = true;
+  // Initialize Firebase
+  var config = {
+      apiKey: "AIzaSyAyN2JVodDv6jZCEJlvB0RIKctYRSMuigA",
+      authDomain: "app-programmieren-kurs.firebaseapp.com",
+      databaseURL: "https://app-programmieren-kurs.firebaseio.com",
+      storageBucket: "app-programmieren-kurs.appspot.com",
+      messagingSenderId: "23042014305"
+  };
+  firebase.initializeApp(config);
 
-document.getElementById('form').onsubmit = function(e) {
-  e.preventDefault();
-  var a = $('#name').val(), b = $('#email').val(), c = $('#msg').val();
-  $.ajax({
-    url: "https://formspree.io/prolernen981237rzfheq9@t-online.de", 
-    method: "POST",
-    data: {message: [a,b,'',c].join('\n')},
-    dataType: "json",
-    success: modal,
-    error: modal
+  var database = firebase.database();
+  var contact = database.ref('contact');
+  if (should_log) {
+    var views = database.ref('views');
+    var session_db = database.ref('session');
+    var session = session_db.push();
+  } else {
+    var session = {key: null};
+  }
+
+  if (should_log && !Cookies.get('visited')) {
+      views.once('value').then(function(snapshot) {
+          var v = snapshot.val();
+          if (!isNaN(v)) { v++ } else { v=1 }
+          views.set(v);
+      });
+      Cookies.set('visited', 'yes');
+  }
+
+  var buy_item='0';
+
+
+  function log(action, item) {
+    if (!should_log) return;
+    var new_data = session.push();
+    new_data.set({action: action, item: item});
+    if (action=='buy') {
+      buy_item = item;
+    }
+  }
+  function reset() {
+    $('#name').val('')
+    $('#email').val('')
+    $('#msg').val('')
+  }
+  function modal() {
+    $('#myModal').modal('show');
+  }
+  window.reset=reset;
+  window.log=log;
+
+  log('visited', Cookies.get('visited'));
+
+  var time_a = new Date();
+  $(window).unload(function(){
+    var time_b = new Date();
+    log('duration', (endDate - startDate) / 1000);
   });
-  return false;
-}
+
+  document.getElementById('form').onsubmit = function(e) {
+    e.preventDefault();
+    var a = $('#name').val(), b = $('#email').val(), c = $('#msg').val();
+    /*
+    var msg = [a,b,'---',buy_item,'---',c].join('\n');
+    $.ajax({
+      url: "https://formspree.io/prolernen981237rzfheq9@t-online.de", 
+      method: "POST",
+      data: {message: msg},
+      dataType: "json",
+      success: modal,
+      error: modal
+    });
+    */
+    var new_contact = contact.push();
+    new_contact.set({name: a, email: b, msg: c, item: buy_item, session: session.key});
+    setTimeout(modal, 0);
+    return false;
+  }
+});
 
 </script>
 </body></html>
